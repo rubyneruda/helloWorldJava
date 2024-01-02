@@ -3,38 +3,31 @@ package GLAB_303_10_02;
 public class MyRunner {
     public static void main(String[] args) {
 
-        Circle c = new Circle(100);
-        System.out.println("Area of Circle " + c.getArea());
+        Circle c1 = new Circle(1, 2, 2);
+        System.out.println("Area of Circle " + c1.getArea());
+        System.out.println("Coordinates are " + c1.getCoordinate());
 
-        // Shape sObj = new Shape(); // This will give Error, we can not instantiate Abstract class
+        c1.moveDown();
+        System.out.println("After move Down, Coordinates are " + c1.getCoordinate());
 
-        // object creation of the Circle class
-        System.out.println("+++++++++++++++++");
-        // it’s fine because a Circle is a Shape by inheritance
-        Shape shapeCircleObj = new Circle(100);  // UpCasting
-        shapeCircleObj.displayShapeName();
-        System.out.println("Area of Circle " + shapeCircleObj.getArea());
-        System.out.println(shapeCircleObj);  // Run circle's toString()
-        // Use instanceof operator for Validation
-        System.out.println(shapeCircleObj instanceof Circle); // true
+        c1.moveRight();
+        System.out.println("After move right, Coordinates are " + c1.getCoordinate());
 
-        System.out.println("+++++++++++++++++");
-        Shape shapeRectangleObj = new Rectangle("Red"); //UpCasting
-        shapeRectangleObj.displayShapeName();
-        shapeRectangleObj.setHeight(2);
-        shapeRectangleObj.setWidth(4);
-        System.out.println("Area of Rectangle is " + shapeRectangleObj.getArea());
-        System.out.println(shapeRectangleObj);  // Run Rectangle's toString()
-        // Use instanceof operator for Validation
-        System.out.println(shapeRectangleObj instanceof Rectangle); // true
+        c1.moveUp();
+        System.out.println("After move Up, Coordinates are " + c1.getCoordinate());
 
-        System.out.println("--------------------");
-        Shape shapeTriangleObj = new Triangle("Blue"); //UpCasting
-        shapeTriangleObj.displayShapeName();
-        shapeTriangleObj.setHeight(10);
-        shapeTriangleObj.setBase(15);
-        System.out.println("Area of Triangle is " + shapeTriangleObj.getArea());
-        System.out.println(shapeTriangleObj);  // Run Triangle's toString()
+        c1.moveLeft();
+        System.out.println("After move left, Coordinates are " + c1.getCoordinate());
+
+
+        System.out.println("--------Test Polymorphism-------");
+        Movable c2 = new Circle(5, 10, 200);  // upcast
+        c2.moveUp();
+        System.out.println("After move up , Coordinates are " + c2.getCoordinate());
+
+        c2.moveLeft();
+        System.out.println("After move Left , Coordinates are " + c2.getCoordinate());
     }
 }
+
 
